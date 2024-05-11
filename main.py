@@ -1,16 +1,48 @@
 import flet as ft
 
-
+def decbin(n):
+    if n == 0:
+        return '0'
+    else:
+        return bin(n).replace("0b", "")
+def bindec(b):
+    return int(b, 2)
+    
 def main(page: ft.Page):
     page.add(ft.SafeArea(ft.Text("Traductor de sistemas numericos")))
-    def add_clicked(e):       
-        new_task.value = ""
+    def convertir_clicked(e):
+        if dd.value=="Decimal a Binario":
+            new_task2.value = decbin(int(new_task.value))
+            new_task.focus()
+            new_task2.update()
+        elif dd.value=="Binario a Decimal":
+            new_task2.value = str(bindec(new_task.value))
+            new_task.focus()
+            new_task2.update()
+
+
+        
+    def elegirop(e):
+        new_task.value=""
+        new_task2.value=""
         new_task.focus()
+        new_task2.update()
         new_task.update()
+
+
     new_task = ft.TextField(hint_text="Ingrese el digito", width=300)
     new_task2 = ft.TextField(hint_text="", width=300)
-    page.add(ft.Row([new_task,new_task2, ft.ElevatedButton("Convertir", on_click=add_clicked)]))
-    
+    page.add(ft.Row([new_task,new_task2, ft.ElevatedButton("Convertir", on_click=convertir_clicked)]))
+   
+    dd = ft.Dropdown(
+        width=300,
+        options=[
+            ft.dropdown.Option("Decimal a Binario", on_click=elegirop),
+            ft.dropdown.Option("Binario a Decimal", on_click=elegirop),
+            ft.dropdown.Option("",on_click=elegirop),
+        ],
+    )
+    page.add(dd)
 
 ft.app(target=main)
 
