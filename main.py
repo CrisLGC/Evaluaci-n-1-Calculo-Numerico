@@ -122,8 +122,10 @@ def main(page: ft.Page):
             new_task.focus()
             new_task2.update()
         elif dd.value=="Hexadecimal a Decimal":
+            
             new_task2.value = str(hexdec(new_task.value))
             new_task.focus()
+         
             new_task2.update()
         elif dd.value=="Decimal a Ternario":
             new_task2.value = decter(int(new_task.value))
@@ -155,8 +157,10 @@ def main(page: ft.Page):
             new_task.focus()
             new_task2.update()
         elif dd.value=="Hexadecimal a Binario":
+      
             new_task2.value = str(hexbin(new_task.value))
             new_task.focus()
+         
             new_task2.update()
         elif dd.value=="Binario a Ternario":
             new_task2.value = binter(str(new_task.value))
@@ -179,8 +183,10 @@ def main(page: ft.Page):
             new_task.focus()
             new_task2.update()
         elif dd.value=="Hexadecimal a Octal":
+           
             new_task2.value = str(hexoct(new_task.value))
             new_task.focus()
+         
             new_task2.update()
         elif dd.value=="Octal a Ternario":
             new_task2.value = octter(str(new_task.value))
@@ -199,8 +205,10 @@ def main(page: ft.Page):
             new_task.focus()
             new_task2.update()
         elif dd.value=="Hexadecimal a Ternario":
+            
             new_task2.value = hexter(str(new_task.value))
             new_task.focus()
+          
             new_task2.update()
         elif dd.value=="Ternario a Hexadecimal":
             new_task2.value = str(terhex(new_task.value))
@@ -222,16 +230,13 @@ def main(page: ft.Page):
             new_task2.value = str(cuahex(new_task.value))
             new_task.focus()
             new_task2.update()
-        
-        
-
-
-
-
+         
 
 
         
     def aleatorio_clicked(e):
+        new_task2.value=""
+        new_task2.update()
         if dd.value=="Decimal a Binario":
             new_task.value=rd.randint(0, 1000000)
             new_task.update()
@@ -270,14 +275,15 @@ def main(page: ft.Page):
             new_task.update()
                
     def elegirop(e):
+
         new_task.value=""
         new_task2.value=""
         new_task.focus()
         new_task2.update()
         new_task.update()
 
-    new_task = ft.TextField(hint_text="Ingrese el digito", width=300)
-    new_task2 = ft.TextField(hint_text="", width=300)
+    new_task = ft.TextField(hint_text="Ingrese el digito", width=300,input_filter=ft.InputFilter(allow=True, regex_string=r"[0-9, a, b, c, d, e, f]", replacement_string=""))
+    new_task2 = ft.TextField(label="", read_only=True,hint_text="", width=300)
     page.add(ft.Row([new_task,new_task2, ft.ElevatedButton("Convertir", on_click=convertir_clicked), ft.ElevatedButton("Aleatorio", on_click=aleatorio_clicked)]))
    
     dd = ft.Dropdown(
