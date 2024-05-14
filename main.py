@@ -94,7 +94,7 @@ def cuahex(n):
     return dechex(cuadec(n))
     
 def main(page: ft.Page):
-    page.add(ft.SafeArea(ft.Text("Traductor de sistemas numericos")))
+    page.add(ft.SafeArea(ft.Text("Traductor de sistemas numericos", size=30, color="pink600", italic=True)))
     def convertir_clicked(e):
         if dd.value=="Decimal a Binario":
             new_task2.value = decbin(int(new_task.value))
@@ -327,6 +327,7 @@ def main(page: ft.Page):
     page.add(ft.Row([new_task,new_task2, ft.ElevatedButton("Convertir", on_click=convertir_clicked), ft.ElevatedButton("Aleatorio", on_click=aleatorio_clicked)]))
    
     dd = ft.Dropdown(
+        hint_text="Escoge la combinacion que desees",
         width=300,
         options=[
             ft.dropdown.Option("Decimal a Binario", on_click=elegirop),
