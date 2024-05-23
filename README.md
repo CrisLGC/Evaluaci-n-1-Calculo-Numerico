@@ -1,9 +1,1 @@
-# A enveva1 Flet app
-
-An example of a minimal Flet app.
-
-To run the app:
-
-```
-flet run [app_directory]
-```
+Éste es un proyecto dentro de un entorno virtual de Python usando pip con la finalidad de hacer un traductor entre los sistemas numéricos: decimal, binario, ternario, cuaternario, octal y hexadecimal. Utilizando programación modular y una interfaz creada con la librería FLET
